@@ -1,0 +1,13 @@
+name: affine
+services:
+  affine:
+    # run official image
+    # image: ghcr.io/toeverything/affine:${AFFINE_REVISION:-stable}
+    # alternatively, patch memberLimit
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        AFFINE_REVISION: ${AFFINE_REVISION:-stable}
+    container_name: affine_server
+# rest of the docker-compose.yml following...
